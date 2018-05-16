@@ -1,6 +1,23 @@
-<h2>AJAX函数封装</h2>
 
-```
+
+myButton.addEventListener('click', (e)=>{
+    window.jQuery.ajax({
+        url:'/xxx',
+        method:'post',
+        body:'a=1&b=2',
+        headers:{
+            'content-type':'application/x-www-form-urlencoded',
+            'yukaka':'25'
+        },
+        successFn:function sss(x){console.log(x)},
+        failFn:function fff(resquest){console.log('失败了')}
+        
+    })
+    
+})
+
+
+/*******以下为ajax的封装函数************* */
 window.jQuery.ajax = function(obj){
     let url=obj.url
     let method=obj.method
@@ -28,19 +45,5 @@ window.jQuery.ajax = function(obj){
     }
     request.send(body)//设置请求的第四部分
 }
-```
-<h2>AJAX函数调用</h2>
-
-```
-window.jQuery.ajax({
-    url:'/xxx',
-    method:'post',
-    body:'a=1&b=2',
-    headers:{
-        'content-type':'application/x-www-form-urlencoded',
-        'yukaka':'25'
-    },
-    successFn:function sss(x){console.log(x)},
-    failFn:function fff(resquest){console.log('失败了')}  
-})
-```
+//function f1(){}
+//function f2(){}
